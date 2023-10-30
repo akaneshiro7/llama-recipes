@@ -84,5 +84,4 @@ def run_script(
     model = load_model(model_name, tp_size)
     main(model, max_new_tokens=max_new_tokens, prompts=prompts, top_p=top_p, temperature=temperature, size=size, seed=seed, print_outputs=print_outputs, print_times=print_times, output_file=output_file)
 
-if __name__ == "__main__":
-    fire.Fire(run_script)
+fire.Fire(run_script)
