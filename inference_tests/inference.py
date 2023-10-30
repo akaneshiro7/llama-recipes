@@ -14,7 +14,7 @@ import random
 def main(
     model_name,
     prompts,
-    size: int=1000,
+    size: int=2000,
     print_outputs: bool=False,
     print_times: bool=False,
     seed=0,
@@ -86,9 +86,10 @@ def main(
                 length_penalty=length_penalty,
                 **kwargs 
             )
+            
         e2e_inference_time = (time.perf_counter()-start)*1000
         e2e_inference_times.append(e2e_inference_time)
-        zipped[str(instruction)] = e2e_inference_time
+        zipped[str(instruction[0])] = e2e_inference_time
 
         if print_times:
             print(f"Inference time: {e2e_inference_time}")
@@ -100,10 +101,9 @@ def main(
     print(f"The average end-to-end inference time over {size} prompts is {average_time}")
     
 
-    json_string = json.dumps(zipped)
 
     with open(output_file, 'w') as f:
-        json.dump(json_string, f)
+        json.dump(zipped, f, indent=4)
 
     
 fire.Fire(main)
