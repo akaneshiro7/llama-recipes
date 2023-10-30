@@ -43,7 +43,7 @@ def main(
     # Get prompts
     instructions = pd.read_csv(prompts)
     instructions = instructions.values.tolist()
-    randomInstructions = random.sample(instructions, 1000)
+    randomInstructions = random.sample(instructions, size)
     
     # Load Model
     model = load_model(model_name, quantization)

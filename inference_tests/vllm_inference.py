@@ -34,7 +34,7 @@ def main(
     
     instructions = pd.read_csv(prompts)
     instructions = instructions.values.tolist()
-    randomInstructions = random.sample(instructions, 1000)
+    randomInstructions = random.sample(instructions, size)
 
     e2e_inference_times = []
 
