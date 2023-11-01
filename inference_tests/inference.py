@@ -14,7 +14,7 @@ import random
 def main(
     model_name,
     prompts,
-    size: int=2000,
+    size: int=250,
     print_outputs: bool=False,
     print_times: bool=False,
     seed=0,
@@ -47,9 +47,8 @@ def main(
     random.seed(seed)
     
     # Get prompts
-    instructions = pd.read_csv(prompts)
-    instructions = instructions.values.tolist()
-    randomInstructions = random.sample(instructions, size)
+    with open(prompts, 'r') as f:
+        instructions = [line.strip() for line in f]
     
     # Load Model
     model = load_model(model_name, quantization)
@@ -68,7 +67,7 @@ def main(
     e2e_inference_times = []
     zipped = {}
 
-    for instruction in randomInstructions:
+    for instruction in instructions:
         batch = tokenizer(instruction, padding='max_length', truncation=True, max_length=max_padding_length, return_tensors="pt")
         batch = {k: v.to("cuda") for k, v in batch.items()}
         start = time.perf_counter()
@@ -89,7 +88,7 @@ def main(
             
         e2e_inference_time = (time.perf_counter()-start)*1000
         e2e_inference_times.append(e2e_inference_time)
-        zipped[str(instruction[0])] = e2e_inference_time
+        zipped[instruction] = e2e_inference_time
 
         if print_times:
             print(f"Inference time: {e2e_inference_time}")

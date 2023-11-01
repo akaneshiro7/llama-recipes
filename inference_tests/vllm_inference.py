@@ -37,15 +37,16 @@ def main(
     torch.manual_seed(seed)
     random.seed(seed)
     
-    instructions = pd.read_csv(prompts)
-    instructions = instructions.values.tolist()
-    randomInstructions = random.sample(instructions, size)
+    # Get prompts
+    with open(prompts, 'r') as f:
+        instructions = [line.strip() for line in f]
+    
 
     e2e_inference_times = []
     zipped = {}
     sampling_param = SamplingParams(top_p=top_p, temperature=temperature, max_tokens=max_new_tokens)
     
-    for instruction in randomInstructions:
+    for instruction in instructions:
         start = time.perf_counter
         outputs = model.generate(instruction, sampling_params=sampling_param)
         e2e_inference_time = (time.perf_counter()-start)*1000
@@ -56,7 +57,7 @@ def main(
         if print_outputs:
             print(f"model output:\n {instruction} {outputs[0].outputs[0].text}")
 
-        zipped[str(instruction[0])] = e2e_inference_time
+        zipped[str(instruction)] = e2e_inference_time
 
 
     average_time = sum(e2e_inference_times) / len(e2e_inference_times)

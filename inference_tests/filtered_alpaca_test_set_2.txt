@@ -1,0 +1,250 @@
+Name one type of AI that is used in machine translation.
+Name a famous person with roots in the city of Calcutta.
+Describe a medieval castle in 3 sentences.
+Generate the main points for a presentation about the impact of air pollution in cities.
+Describe a new way to use artificial intelligence in the classroom.
+Suggest five features for a photo editing application
+Find a website where you can watch documentaries.
+Select the two most influential people of the twentieth century.
+Generate 5 questions about the usage of a new smart phone.
+What would be the most important thing to consider when applying for a loan?
+Create a timeline for the world's tallest mountain.
+Name the character that is featured in the novel "The Catcher in the Rye".
+Create a character sketch for a villain.
+Find the tenth largest city in the world in terms of population.
+Create an automated response for a customer who has inquired about the warranty of a product.
+Generate an appropriate response when someone says, "I'm having a difficult time."
+Which is the hottest planet in our Solar System?
+Explain the importance of the author's purpose in literature.
+Read the following and come up with a list of adjectives related to sports.
+Describe the role and importance of artificial intelligence today
+What is the most significant environmental challenge that humanity currently faces?
+Name 3 countries that speak Spanish as an official language.
+Explain what a Bloom filter is
+Create a joke using the following words: parachute, rubber band, waffle.
+Pick five items for a first aid kit
+Explain why certain materials are better for insulation
+Summarize the historical events underlying the current immigration debate
+Write a near-future fiction set in the year 2040. Output should be 5 sentences.
+Explain the concept of corporate social responsibility
+Please give an example of a 20th century writer from Japan
+Come up with a new word that combines the two words ‘flavor’ and ‘satisfied’
+Add the following ingredients to a holiday cookie recipe: flour, honey, and molasses.
+Give an example of a traditional folk tale.
+Explain the consequences of not voting in the upcoming election.
+What does the acronym CRUD stand for when it comes to databases?
+Generate a haiku with the words 'moonlight', 'heart' and 'glow'.
+Evaluate the expression 4+2*3.
+Generate a descriptive title for an article about deep learning
+Generate a list of US Presidents.
+Write a paragraph describing the painting Monet's "Impression, Sunrise"
+Write a paragraph that describes a time when you achieved a difficult goal.
+Describe the GPT-3 language model.
+What is the average life expectancy of a cat?
+Explain what a rhetorical question is in a sentence or two.
+Suggest some methods to reduce stress in a job interview.
+Provide an example of a metric system unit of time.
+Explain why Pluto is no longer considered a planet.
+Describe three qualities of good customer service.
+List the names of four social media platforms.
+How do you get rid of oil stains from YELLOW fabric?
+Give a list of five foods rich in calcium.
+Name 5 common disease-causing pathogens.
+Name a popular activity people do in the summer.
+Find 5 sentence patterns commonly used in English.
+Describe how decision-making algorithms work.
+What are some ways to improve cybersecurity for businesses?
+Perform a character analysis of Bilbo Baggins from "The Hobbit".
+What is a benefit of sending automated emails?
+Generate a riddle about an owl.
+Outline the basic operations of a web browser.
+Describe what happened in the most exciting football match you have seen.
+What is the significance of 'self-directed learning'?
+Create three creative metaphors to describe a slowly boiling pot of water.
+Create a story that starts with the line "The sun was setting, leaving behind a beautiful orange hue."
+Name three common adjectives that describe people
+What are the steps you need to take to create a successful marketing campaign?
+Construct a query using a wildcard.
+Write an algorithm to calculate the perimeter of a rectangle.
+Make a list of the top three water parks in the United States.
+Identify the activities that take place in India’s Thar Desert.
+Describe the purpose of a neural network.
+Construct a haiku based on the word "autumn"
+Where does the expression “busy as a bee” come from?
+Describe a story that could be used to demonstrate the importance of data privacy
+Design a chatbot for a customer service website built with GPT-3.
+Give me a list of elements found in the Earth's atmosphere.
+Name one type of artificial neural network.
+Generate a list of five strategies for reducing greenhouse gas emissions.
+Suggest a way to celebrate a ten-year wedding anniversary.
+Determine the length of the diagonal for a square with a side of length 6 inches.
+Write 10 sports terms and their definitions.
+Identify two examples of machine learning algorithms.
+Give an example of a person who has achieved greatness in their field.
+What are the five main perspectives of psychology?
+Create a poem that celebrates the joy of friendship.
+How would you design an algorithm for summarizing text?
+Provide an example of a job a data scientist might do.
+Change the verb in the following sentence: "The children walked to school."
+Calculate the sum of 10001st number and the 10th number.
+List four popular musuems in London.
+Compose a limerick describing a morning in the forest.
+Explicate the concept of artificial intelligence
+What is the main purpose of a customer service representative?
+Given the following list of numbers, find the average and the sum: 1, 2, 3, 4
+Compare and contrast electric and manual toothbrush in a few sentences.
+Give an example of a persuasive speech topic.
+Rewrite this sentence in a more concise way:  "I'm feeling kind of tired after having worked all day."
+Write a few lines of lyrics for a song.
+A student is researchsing the stock market. What type of data do they need to collect?
+What is the answer to this math problem? 5+6
+What is the theme of the book 1984?
+Design a logo for a mobile application.
+List five features of a GPT-3 language model.
+Come up with three marketing strategies for a reality show about cooking.
+Generate an analogy for “optimism is to hope as raining is to____”
+Create an invention that could improve the environment.
+Come up with a creative way to showcase the benefits of a fitness app.
+Explain how deforestation affects global climate
+Find the volume of a cone if its base is 8 cm in diameter and its height is 12 cm.
+Design a musical instrument using everyday objects.
+Find out the average growth rate of tomatoes.
+Search online and summarize the current market trends for cars in the United States.
+Name one disadvantage of the use of renewable energy sources
+Suggest a creative dessert to make for a family gathering.
+Describe the economy of Singapore
+Arrange the following words to create a meaningful phrase: “deals/back/gives/who/a/win”
+What is the descriptive word for a person who is uncaring?
+What is the current American President's name?
+List 3 types of environment effects of fossil fuel emissions.
+Generate a fun memory game in which the player has to match up pairs of similar items.
+Summarize how the internet of things (IoT) is changing the modern world.
+Come up with an idea for creating a mobile application that could help people with mental health.
+Describe in a few sentences about the solar system.
+Explain the process of how a driverless car would know when to stop at a sign.
+List five business ethics that should be followed by companies.
+Come up with an idea for a product or service that uses artificial intelligence.
+Explain what makes a good digital marketing strategy.
+Create a text response that demonstrates sympathy.
+Name one of the seven notes of the musical scale.
+Tell me the differences between a sponge and a tissue.
+Create a math equation where the answer is 3.
+Explain why customer service reps need to stay calm and collected during a conversation.
+Generate a list of 5 books that discuss the theme of resilience
+Generate a horror story involving a haunted house.
+Write an algorithm to reverse a string.
+Develop a recipe for chocolate chip pancakes.
+Classify the following sentence into the given categories: He worked hard to achieve his goal:
+Compare and contrast news magazines and daily newspapers.
+Name a movie that is good for kids.
+Craft a headline for an article on the effect of the pandemic on mental health.
+Where does the phrase "once in a blue moon" come from?
+Describe the structure of an atom.
+Generate 5 factoids about medicinal plants.
+How would you define fascism?
+Post an advertisement for a job opening, targeting software engineers.
+Describe the concept of a "Virtual Machine".
+Describe what nuclear energy is and how it is used.
+Write the result of the division operation: 17 divided by 4.
+Make a list of 10 colors found in rainbows.
+What is a common impact of climate change?
+Summarize the concept of deep learning in a few sentences.
+Who is the founder of Microsoft?
+Design the basic layout of an infographic.
+Give a description of the movie "Pirates of the Caribbean: The Curse of the Black Pearl".
+Create a list of five key points to consider when buying a car.
+Find the corresponding child’s size for a women’s size 6
+Write a reaction sentence to the following statement: “This is going to be a long night.”
+Generate a book summary of the novel Animal Farm.
+Name the five most versatile plants.
+Generate an essay discussing the effects of technology on student learning.
+Give an example of a country with an effective health care system.
+Name 3 things a software engineer should know.
+Create a metaphor to explain the concept of artificial intelligence.
+Name a popular TV show from the 2000s
+Calculate the total number of calories in a banana.
+Identify the most innovative technology companies in the last 10 years.
+Design an algorithm to find the longest word in a string.
+Formulate a hypothesis to explain why part of the population is more vulnerable to COVID-19
+Describe in a few words what makes a good leader.
+Create an abstract painting.
+Design a logo for a child care center.
+Name two types of physical stimuli that animals can detect.
+Describe your ideal work environment.
+Create a list of 10 different animals
+Find a song title that rhymes with 'moon'
+Generate a unique story featuring two characters and a moral lesson.
+Generate a hypothesis about the cause of climate change
+Answer this question: “What is the meaning of life?”
+Recommend a suitable language model for a task that performs summarization.
+Create a new product slogan
+What are common types of rhyme?
+Generate a poem that contains the word “flower”.
+Tell me one way to improve the performance of a computer.
+Generate a list of five characteristics of an ideal leader.
+Give an example of something Newton's third law of motion applies to.
+Tell the assistant to change the background color of a document to blue.
+Create a 10-second animation of a village scene.
+Name 3 non-carbonated beverages.
+Name 4 different mammals.
+I need a creative name for my blog.
+Identify the best strategies for running a successful business.
+Edit the following sentence to make it grammatically correct: My brother and I enjoying the movie
+Name five countries that have recently passed a law restricting foreign involvement.
+Calculate the value of 12 divided by 6.
+Give one example of a liquid at room temperature
+Describe a hypothetical situation in which AI technology could be used to improve the safety of workplaces.
+Name three things that a bookkeeper needs to do.
+Describe a scenario in which AI can be used for increasing efficiency.
+Ge rerate 3 product ideas for a new mobile application.
+Generate a fiction story about robots.
+Describe an experience of a swimming competition.
+Describe the process for extracting oil from an oil well.
+Translate the word "accuracy" to Chinese.
+Describe the precautionary steps people should take to protect against Coronavirus.
+Summarize what is the consumer price index (CPI).
+Explain why the Internet is an important tool for learning.
+Type a valid HTML code for creating a button.
+What is the time now?
+Describe different types of meditation
+Make a list of ten emotions
+Identify the key characters of the novel "The Hobbit".
+Create a list of 10 steps for creating a successful YouTube channel.
+Provide the programming language for the following code snippet.
+What is the difference between a supervised learning algorithm and an unsupervised learning algorithm?
+Develop an algorithm to search for a particular item in a list.
+Rank the following 4 modes of transport according to their total impact on the environment. 4. Air transportation 3.Train transportation 2. Road transportation 1. Ship transportation
+How do you fold a paper boat?
+Explain the concept of exponential growth.
+What is the most efficient way to test a model built by a GPT language model?
+Explain the stages of product development.
+State the equation for calculating the area of a rectangle.
+Design an effective study plan.
+Provide an example of a technology-driven tool used to aid people with disabilities.
+Write five adjectives that describe the concept of freedom.
+Generate a creative slogan related to environmental conservation.
+Should you own a car in the city or just get a ride sharing service?
+Create a list of 10 creative ways to use a hammer.
+List three possible strategies to deal with depression.
+List three potential online security risks
+Explain what machine learning is in at most 5 sentences.
+Classify three different types of computer viruses.
+What is 30% of 200?
+Describe the differences between an online store and a brick-and-mortar store.
+Create a story that takes place in a small town.
+Describe Einstein's Theory of Relativity.
+Find any 3 examples of English sayings that are related to the idiom "A stitch in time saves nine".
+Find a quote about endurance.
+Create a flow-chart for baking a cake
+Explain the importance of tracking customer data
+If you needed to produce a report quickly, what steps would you undertake?
+Formulate a hypothesis to explain why the organic food is healthier.
+What are some of the components of a computer system?
+Name three characters in the movie Forrest Gump.
+Evaluate the expression 9 − 4 + 8 × 5.
+Rewrite the following sentence without losing the meaning: The church bells tolled as if to mark the passing of something.
+Explain the difference between product management and project management
+Give an example of a dated consumer product that could be improved with artificial intelligence?
+Propose a solution for dealing with air pollution.
+Name three basic styles of art.
+Construct a meaningful haiku poem.
