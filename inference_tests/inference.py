@@ -67,7 +67,7 @@ def main(
     e2e_inference_times = []
     zipped = {}
 
-    for instruction in instructions:
+    for i, instruction in enumerate(instructions):
         batch = tokenizer(instruction, padding='max_length', truncation=True, max_length=max_padding_length, return_tensors="pt")
         batch = {k: v.to("cuda") for k, v in batch.items()}
         start = time.perf_counter()
@@ -89,7 +89,7 @@ def main(
         e2e_inference_time = (time.perf_counter()-start)*1000
         e2e_inference_times.append(e2e_inference_time)
         zipped[instruction] = e2e_inference_time
-
+        print(f"Prompt {i}")
         if print_times:
             print(f"Inference time: {e2e_inference_time}")
         if print_outputs:
