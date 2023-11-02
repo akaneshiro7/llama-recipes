@@ -46,12 +46,13 @@ def main(
     zipped = {}
     sampling_param = SamplingParams(top_p=top_p, temperature=temperature, max_tokens=max_new_tokens)
     
-    for instruction in instructions:
-        start = time.perf_counter
+    for i, instruction in enumerate(instructions):
+        start = time.perf_counter()
         outputs = model.generate(instruction, sampling_params=sampling_param)
         e2e_inference_time = (time.perf_counter()-start)*1000
         e2e_inference_times.append(e2e_inference_time)
-    
+        
+        print(f"Prompt {i}")
         if print_times:
             print(f"Inference time: {e2e_inference_time}")
         if print_outputs:
