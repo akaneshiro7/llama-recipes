@@ -8,6 +8,8 @@ import torch
 from transformers import LlamaTokenizer
 from llama_recipes.inference.model_utils import load_model, load_peft_model
 
+from carbontracker.tracker import CarbonTracker, CarbonTrackerManual
+
 import pandas as pd
 import random 
 
@@ -64,13 +66,20 @@ def main(
     tokenizer = LlamaTokenizer.from_pretrained(model_name)
     tokenizer.pad_token = tokenizer.eos_token
 
-    e2e_inference_times = []
-    zipped = {}
+    info = {}
 
     for i, instruction in enumerate(instructions):
+        tracker = CarbonTrackerManual(epochs=1, monitor_epochs=1, update_interval=1,
+            components='all', epochs_before_pred=1, verbose=2)
+        tracker.tracker.pue_manual=1
+        tracker.intensity_updater.ci_manual = 100
+
+        tracker.epoch_start()
+        print(f"Prompt {i}")
+
         batch = tokenizer(instruction, padding='max_length', truncation=True, max_length=max_padding_length, return_tensors="pt")
         batch = {k: v.to("cuda") for k, v in batch.items()}
-        start = time.perf_counter()
+
         with torch.no_grad():
             outputs = model.generate(
                 **batch,
@@ -85,24 +94,17 @@ def main(
                 length_penalty=length_penalty,
                 **kwargs 
             )
-            
-        e2e_inference_time = (time.perf_counter()-start)*1000
-        e2e_inference_times.append(e2e_inference_time)
-        zipped[instruction] = e2e_inference_time
-        print(f"Prompt {i}")
-        if print_times:
-            print(f"Inference time: {e2e_inference_time}")
-        if print_outputs:
-            output_text = tokenizer.decode(outputs[0], skip_special_tokens=True)
-            print(f"Model output:\n{output_text}")
-        
-    average_time = sum(e2e_inference_times) / len(e2e_inference_times)
-    print(f"The average end-to-end inference time over {size} prompts is {average_time}")
-    
 
+        tracker.epoch_end()
+        [energy, co2] = tracker.get_energy_co2()
+
+        info[instruction] = {
+            "Energy": energy,
+            "CO2": co2
+        }
 
     with open(output_file, 'w') as f:
-        json.dump(zipped, f, indent=4)
+        json.dump(info, f, indent=4)
 
     
 fire.Fire(main)
