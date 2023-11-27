@@ -95,8 +95,7 @@ def main(
                 **kwargs 
             )
 
-        tracker.epoch_end()
-        [energy, co2] = tracker.get_energy_co2()
+        [energy, co2] = tracker.epoch_end()
 
         info[instruction] = {
             "Energy": energy,
