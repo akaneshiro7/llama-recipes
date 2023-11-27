@@ -7,6 +7,8 @@ import torch
 from vllm import LLM
 from vllm import LLM, SamplingParams
 
+from carbontracker.tracker import CarbonTracker, CarbonTrackerManual
+
 import pandas as pd
 import json
 
@@ -37,33 +39,38 @@ def main(
     torch.manual_seed(seed)
     random.seed(seed)
     
-    instructions = pd.read_csv(prompts)
-    instructions = instructions.values.tolist()
-    randomInstructions = random.sample(instructions, size)
+    # Get prompts
+    with open(prompts, 'r') as f:
+        instructions = [line.strip() for line in f]
+    
 
-    e2e_inference_times = []
-    zipped = {}
+    info = {}
     sampling_param = SamplingParams(top_p=top_p, temperature=temperature, max_tokens=max_new_tokens)
     
-    for instruction in randomInstructions:
-        start = time.perf_counter
+    for i, instruction in enumerate(instructions):
+
+        tracker = CarbonTrackerManual(epochs=1, monitor_epochs=1, update_interval=1,
+            components='all', epochs_before_pred=1, verbose=2)
+        tracker.tracker.pue_manual=1
+        tracker.intensity_updater.ci_manual = 100
+
+        tracker.epoch_start()
+        print(f"Prompt {i}")
+
         outputs = model.generate(instruction, sampling_params=sampling_param)
-        e2e_inference_time = (time.perf_counter()-start)*1000
-        e2e_inference_times.append(e2e_inference_time)
-    
-        if print_times:
-            print(f"Inference time: {e2e_inference_time}")
-        if print_outputs:
-            print(f"model output:\n {instruction} {outputs[0].outputs[0].text}")
-
-        zipped[str(instruction[0])] = e2e_inference_time
+        
 
 
-    average_time = sum(e2e_inference_times) / len(e2e_inference_times)
-    print(f"The average end-to-end inference time over {size} prompts is {average_time}")
+        [energy, co2] = tracker.epoch_end()
+
+        info[str(instruction)] = {
+            "Energy": energy,
+            "CO2": co2
+        }
+
 
     with open(output_file, 'w') as f:
-        json.dump(zipped, f, indent=4)
+        json.dump(info, f, indent=4)
 
 def run_script(
     model_name: str,
