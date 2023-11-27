@@ -96,7 +96,8 @@ def main(
             )
 
         [energy, co2] = tracker.epoch_end()
-
+        del tracker 
+        
         info[instruction] = {
             "Energy": energy,
             "CO2": co2

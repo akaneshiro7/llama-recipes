@@ -23,7 +23,7 @@ def main(
     prompts=None,
     top_p=0.9,
     temperature=0.8,
-    size=2000,
+    size=250,
     seed=0,
     print_outputs=False,
     print_times=False,
@@ -46,21 +46,18 @@ def main(
 
     info = {}
     sampling_param = SamplingParams(top_p=top_p, temperature=temperature, max_tokens=max_new_tokens)
-    
+    tracker = CarbonTrackerManual(epochs=1, monitor_epochs=size, update_interval=1,
+        components='all', epochs_before_pred=1, verbose=2)
+    tracker.tracker.pue_manual=1
+    tracker.intensity_updater.ci_manual = 100
+
     for i, instruction in enumerate(instructions):
-
-        tracker = CarbonTrackerManual(epochs=1, monitor_epochs=1, update_interval=1,
-            components='all', epochs_before_pred=1, verbose=2)
-        tracker.tracker.pue_manual=1
-        tracker.intensity_updater.ci_manual = 100
-
         tracker.epoch_start()
         print(f"Prompt {i}")
 
         outputs = model.generate(instruction, sampling_params=sampling_param)
+        print("After Inference")
         
-
-
         [energy, co2] = tracker.epoch_end()
 
         info[str(instruction)] = {
@@ -80,7 +77,7 @@ def run_script(
     prompts=None,
     top_p=1.0,
     temperature=1.0,
-    size=1000,
+    size=250,
     seed=0,
     print_outputs=False,
     print_times=False,
