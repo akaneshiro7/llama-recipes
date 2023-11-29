@@ -68,11 +68,11 @@ def main(
 
     info = {}
 
+    tracker = CarbonTrackerManual(epochs=2, monitor_epochs=1, update_interval=0.1,
+        components='all', epochs_before_pred=1, verbose=0)
+    tracker.tracker.pue_manual=1
+    tracker.intensity_updater.ci_manual = 100
     for i, instruction in enumerate(instructions):
-        tracker = CarbonTrackerManual(epochs=1, monitor_epochs=1, update_interval=1,
-            components='all', epochs_before_pred=1, verbose=2)
-        tracker.tracker.pue_manual=1
-        tracker.intensity_updater.ci_manual = 100
 
         tracker.epoch_start()
         print(f"Prompt {i}")
