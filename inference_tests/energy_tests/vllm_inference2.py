@@ -43,21 +43,21 @@ def main(
     with open(prompts, 'r') as f:
         instructions = [line.strip() for line in f]
     
-
     info = {}
+
     sampling_param = SamplingParams(top_p=top_p, temperature=temperature, max_tokens=max_new_tokens)
-    tracker = CarbonTrackerManual(epochs=1, monitor_epochs=size, update_interval=1,
-        components='all', epochs_before_pred=1, verbose=2)
+    tracker = CarbonTrackerManual(epochs=2, monitor_epochs=1, update_interval=0.1,
+        components='all', epochs_before_pred=1, verbose=0)
     tracker.tracker.pue_manual=1
     tracker.intensity_updater.ci_manual = 100
-
+    time.sleep(5)
+    
     for i, instruction in enumerate(instructions):
         tracker.epoch_start()
         print(f"Prompt {i}")
 
         outputs = model.generate(instruction, sampling_params=sampling_param)
-        print("After Inference")
-        
+
         [energy, co2] = tracker.epoch_end()
 
         info[str(instruction)] = {
