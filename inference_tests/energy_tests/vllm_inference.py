@@ -49,8 +49,8 @@ def main(
     
     for i, instruction in enumerate(instructions):
 
-        tracker = CarbonTrackerManual(epochs=1, monitor_epochs=1, update_interval=1,
-            components='all', epochs_before_pred=1, verbose=2)
+        tracker = CarbonTrackerManual(epochs=2, monitor_epochs=1, update_interval=0.1,
+            components='all', epochs_before_pred=1, verbose=0)
         tracker.tracker.pue_manual=1
         tracker.intensity_updater.ci_manual = 100
 
@@ -59,9 +59,7 @@ def main(
 
         outputs = model.generate(instruction, sampling_params=sampling_param)
         
-
-        tracker.epoch_end()
-        [energy, co2] = tracker.get_energy_co2()
+        [energy, co2] = tracker.epoch_end()
 
         info[str(instruction)] = {
             "Energy": energy,
