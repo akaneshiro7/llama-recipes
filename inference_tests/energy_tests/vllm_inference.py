@@ -4,13 +4,17 @@ import random
 import time
 
 import torch
-from vllm import LLM
 from vllm import LLM, SamplingParams
 
-from carbontracker.tracker import CarbonTracker, CarbonTrackerManual
+from carbontracker.tracker import CarbonTrackerManual
 
 import pandas as pd
 import json
+import pdb
+
+# TODO: 
+# 1. make sure all params are the same between inference.py and vllm_inference.py
+# 2. in result .json, record (i) time (ii) energy (iii) output
 
 def load_model(model_name, tp_size=1):
 
@@ -23,7 +27,7 @@ def main(
     prompts=None,
     top_p=0.9,
     temperature=0.8,
-    size=2000,
+    size=250,
     seed=0,
     print_outputs=False,
     print_times=False,
@@ -43,23 +47,25 @@ def main(
     with open(prompts, 'r') as f:
         instructions = [line.strip() for line in f]
     
-
     info = {}
+
     sampling_param = SamplingParams(top_p=top_p, temperature=temperature, max_tokens=max_new_tokens)
-    
+    tracker = CarbonTrackerManual(epochs=1, monitor_epochs=1, update_interval=0.01,
+        components='all', epochs_before_pred=1, verbose=0) # use smaller update_interval b/c vLLM is faster
+    tracker.tracker.pue_manual=1
+    tracker.intensity_updater.ci_manual = 100
+    time.sleep(5)
     for i, instruction in enumerate(instructions):
-
-        tracker = CarbonTrackerManual(epochs=2, monitor_epochs=1, update_interval=0.1,
-            components='all', epochs_before_pred=1, verbose=0)
-        tracker.tracker.pue_manual=1
-        tracker.intensity_updater.ci_manual = 100
-
         tracker.epoch_start()
-        print(f"Prompt {i}")
+        # insert time measurement start
+        print(f"Prompt {i}: {instruction}")
+        # if "Lena played video games" in instruction:
+        #     pdb.set_trace()
 
         outputs = model.generate(instruction, sampling_params=sampling_param)
-        
-        [energy, co2] = tracker.epoch_end()
+        print(f'output: {outputs[0].outputs[0].text}')
+        # insert time measurement end 
+        energy, co2 = tracker.epoch_end('')
 
         info[str(instruction)] = {
             "Energy": energy,
@@ -78,7 +84,7 @@ def run_script(
     prompts=None,
     top_p=1.0,
     temperature=1.0,
-    size=1000,
+    size=250,
     seed=0,
     print_outputs=False,
     print_times=False,
