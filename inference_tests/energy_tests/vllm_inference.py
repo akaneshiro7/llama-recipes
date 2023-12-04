@@ -1,3 +1,6 @@
+
+
+
 import fire
 import os
 import random
@@ -25,13 +28,14 @@ def main(
     model,
     max_new_tokens=100,
     prompts=None,
-    top_p=0.9,
-    temperature=0.8,
+    top_p=1.0,
+    temperature=1.0,
     size=250,
     seed=0,
     print_outputs=False,
     print_times=False,
-    output_file=None
+    output_file=None,
+    top_k = 50
 ):
     if not output_file:
         print("No output file specified")
@@ -49,27 +53,29 @@ def main(
     
     info = {}
 
-    sampling_param = SamplingParams(top_p=top_p, temperature=temperature, max_tokens=max_new_tokens)
+    sampling_param = SamplingParams(top_p=top_p, temperature=temperature, max_tokens=max_new_tokens, top_k=50)
     tracker = CarbonTrackerManual(epochs=1, monitor_epochs=1, update_interval=0.01,
         components='all', epochs_before_pred=1, verbose=0) # use smaller update_interval b/c vLLM is faster
     tracker.tracker.pue_manual=1
     tracker.intensity_updater.ci_manual = 100
     time.sleep(5)
+
     for i, instruction in enumerate(instructions):
         tracker.epoch_start()
-        # insert time measurement start
         print(f"Prompt {i}: {instruction}")
         # if "Lena played video games" in instruction:
         #     pdb.set_trace()
-
+        start = time.perf_counter()
         outputs = model.generate(instruction, sampling_params=sampling_param)
-        print(f'output: {outputs[0].outputs[0].text}')
-        # insert time measurement end 
+        e2e_inference_time = (time.perf_counter()-start)*1000
+        # print(f'output: {outputs[0].outputs[0].text}')
+        output = outputs[0].outputs[0].text
         energy, co2 = tracker.epoch_end('')
 
         info[str(instruction)] = {
+            "Time": e2e_inference_time,
             "Energy": energy,
-            "CO2": co2
+            "Output": output
         }
 
 
