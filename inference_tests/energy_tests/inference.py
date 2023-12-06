@@ -79,6 +79,7 @@ def main(
 
         batch = tokenizer(instruction, padding='max_length', truncation=True, max_length=max_padding_length, return_tensors="pt")
         batch = {k: v.to("cuda") for k, v in batch.items()}
+        start = time.perf_counter()
 
         with torch.no_grad():
             outputs = model.generate(
@@ -87,19 +88,20 @@ def main(
                 do_sample=do_sample,
                 top_p=top_p,
                 temperature=temperature,
-                min_length=min_length,
                 use_cache=use_cache,
                 top_k=top_k,
                 repetition_penalty=repetition_penalty,
                 length_penalty=length_penalty,
                 **kwargs 
             )
+        e2e_inference_time = (time.perf_counter()-start)*1000
 
         [energy, co2] = tracker.epoch_end()
-        
-        info[instruction] = {
+        output = tokenizer.decode(outputs[0], skip_special_tokens=True)
+        info[str(instruction)] = {
+            "Time": e2e_inference_time,
             "Energy": energy,
-            "CO2": co2
+            "Output": output
         }
 
     with open(output_file, 'w') as f:

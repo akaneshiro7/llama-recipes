@@ -1,6 +1,3 @@
-
-
-
 import fire
 import os
 import random
