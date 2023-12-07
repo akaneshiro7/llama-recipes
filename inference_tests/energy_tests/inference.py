@@ -73,7 +73,6 @@ def main(
     tracker.tracker.pue_manual=1
     tracker.intensity_updater.ci_manual = 100
     for i, instruction in enumerate(instructions):
-
         tracker.epoch_start()
         print(f"Prompt {i}")
 
