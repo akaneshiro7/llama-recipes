@@ -19,13 +19,14 @@ def main(
     model,
     max_new_tokens=100,
     prompts=None,
-    top_p=0.9,
-    temperature=0.8,
-    size=2000,
+    top_p=1.0,
+    temperature=1.0,
+    size=250,
     seed=0,
     print_outputs=False,
     print_times=False,
-    output_file=None
+    output_file=None,
+    top_k = 50
 ):
     if not output_file:
         print("No output file specified")
@@ -40,10 +41,9 @@ def main(
     # Get prompts
     with open(prompts, 'r') as f:
         instructions = [line.strip() for line in f]
-
     e2e_inference_times = []
     zipped = {}
-    sampling_param = SamplingParams(top_p=top_p, temperature=temperature, max_tokens=max_new_tokens)
+    sampling_param = SamplingParams(top_p=top_p, temperature=temperature, max_tokens=max_new_tokens, top_k=top_k)
     
     for instruction in instructions:
         start = time.perf_counter()
@@ -73,7 +73,7 @@ def run_script(
     prompts=None,
     top_p=1.0,
     temperature=1.0,
-    size=1000,
+    size=250,
     seed=0,
     print_outputs=True,
     print_times=False,
